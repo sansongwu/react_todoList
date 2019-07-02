@@ -10,8 +10,14 @@ export default (state = defaultState, action) => {
     if (action.type === types.INIT_LIST) {
         /* 创建newState */
         const newState = JSON.parse(JSON.stringify(state));
+        return newState;
     }
-    return state
+    if (action.type === types.SET_INPUT_VALUE) {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.inputValue = action.payload.value;
+        return newState;
+    }
+    return state;
 }
 
 
