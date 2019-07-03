@@ -13,10 +13,16 @@ class Input extends Component {
                 inputValue: store.getState().inputValue
             }))
         })
+        this.onAdd = this.onAdd.bind(this);
     }
 
     onAdd() {
-        alert('add')
+        store.dispatch({
+            type: types.ADD_ITEM,
+            payload: {
+                value: this.state.inputValue
+            }
+        })
     }
     handleInputChange(e) {
         console.log(e.target.value)
